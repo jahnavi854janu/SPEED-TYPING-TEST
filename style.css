@@ -1,0 +1,389 @@
+:root {
+    --bg-color: #2c1c0c;
+    --primary-color: #f7a048;
+    --secondary-color: #e5903b;
+    --accent-color: #ffd9a5;
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --incorrect-color: #ff6347;
+}
+
+/* General Body and Layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c1c0c, #4a2e1d, #6b432e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Particles Container */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure particles are behind the main content */
+    background: transparent;
+}
+
+/* Glass Effect Card */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Page Transitions */
+.page {
+    position: absolute;
+    width: 100%;
+    max-width: 50rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: scale(0.9) translateY(20px);
+    z-index: 1; /* Ensure page content is above the particles */
+}
+
+.page.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
+}
+
+/* Home Page */
+.intro-container {
+    text-align: center;
+    animation: fadeInSlideUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    white-space: nowrap;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.emoji {
+    font-size: 1.5em;
+    animation: pulse 1.8s infinite;
+}
+
+.option-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.start-btn {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(247, 160, 72, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.6s ease-in-out;
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 0;
+}
+
+.start-btn:hover::before {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.start-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(229, 144, 59, 0.5);
+}
+
+.btn-text, .btn-subtitle {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-text {
+    font-size: 2rem;
+}
+
+.btn-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Level Selection Page */
+.level-container {
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 40rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.level-title-page {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.level-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.level-btn {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.level-btn:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    transform: scale(1.05) translateY(-3px);
+}
+
+.back-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+/* Game Page */
+.container {
+    padding: 2.5rem;
+    width: 100%;
+    text-align: center;
+    transform: scale(0.9);
+    animation: fadeIn 1s ease-out, scaleIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.level-title {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric {
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    display: block;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.text-display {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    height: 12rem;
+    overflow-y: auto;
+    cursor: text;
+    border: 2px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+.correct { color: var(--accent-color); }
+.incorrect { color: var(--incorrect-color); text-decoration: underline; }
+.current { background-color: var(--primary-color); border-radius: 4px; animation: blink 1s infinite steps(1); }
+
+.typing-area {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: none;
+}
+
+.typing-area:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color);
+}
+
+.new-text-btn {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 1rem;
+}
+
+.new-text-btn:hover {
+    transform: rotate(45deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.visible {
+    display: flex;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.modal-content {
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    max-width: 30rem;
+    width: 100%;
+    animation: scaleUp 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.modal-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-color);
+}
+
+.modal-text {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin: 0.5rem;
+}
+
+.modal-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes scaleIn { from {transform:scale(0.8);} to {transform:scale(1);} }
+@keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.15);} 100%{transform:scale(1);} }
+@keyframes blink { 50%{background-color:transparent;} }
+@keyframes scaleUp { from{transform:scale(0.7);} to{transform:scale(1);} }

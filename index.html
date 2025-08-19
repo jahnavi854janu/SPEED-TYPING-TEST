@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Typing Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div id="home-page" class="page active">
+        <div class="intro-container">
+            <h1 class="intro-title">
+                <span class="emoji">🐢</span>
+                <span class="gradient-text">Speed Typing Test</span>
+                <span class="emoji">🚀</span>
+            </h1>
+            <div class="option-container">
+                <button id="start-slow" class="start-btn">
+                    <span class="btn-text">Slow</span>
+                    <span class="btn-subtitle">for beginners</span>
+                </button>
+                <button id="start-speed" class="start-btn">
+                    <span class="btn-text">Fast</span>
+                    <span class="btn-subtitle">for legends</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="level-page" class="page">
+        <div class="level-container glass-card">
+            <h1 class="level-title-page">Select a Level</h1>
+            <div id="level-grid" class="level-grid">
+            </div>
+            <button id="back-to-home-btn" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</button>
+        </div>
+    </div>
+
+    <div id="game-page" class="page">
+        <div class="container glass-card">
+            <h1 class="title">Typing Master</h1>
+            <h2 id="level-display" class="level-title">Level 1</h2>
+    
+            <div class="metrics-grid">
+                <div class="metric glass-card">
+                    <span id="wpm-display" class="metric-value">0</span>
+                    <span class="metric-label">WPM</span>
+                </div>
+                <div class="metric glass-card">
+                    <span id="accuracy-display" class="metric-value">0</span>
+                    <span class="metric-label">% Accuracy</span>
+                </div>
+                <div class="metric glass-card">
+                    <span id="time-display" class="metric-value">0</span>
+                    <span class="metric-label">s</span>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+    
+            <div class="text-display glass-card">
+                <p id="target-text"></p>
+            </div>
+            
+            <textarea id="typing-area" class="typing-area glass-card" placeholder="Start typing here..."></textarea>
+            <button id="new-text-btn" class="new-text-btn" title="Restart Level"><i class="fas fa-redo"></i></button>
+    
+            <div id="appreciation-modal" class="modal">
+                <div class="modal-content glass-card">
+                    <h2 class="modal-title">Amazing Job!</h2>
+                    <p id="modal-text" class="modal-text">You've completed the challenge!</p>
+                    <button id="next-level-btn" class="modal-btn" style="display:none;">Next Level</button>
+                    <button id="home-btn" class="modal-btn">Back to Home</button>
+                </div>
+            </div>
+
+            <div id="fail-modal" class="modal">
+                <div class="modal-content glass-card">
+                    <h2 class="modal-title" style="color:var(--incorrect-color);">Time's Up!</h2>
+                    <p class="modal-text">You didn't complete the level in time. Try again!</p>
+                    <button id="retry-btn" class="modal-btn">Retry Level</button>
+                    <button id="fail-home-btn" class="modal-btn">Back to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
