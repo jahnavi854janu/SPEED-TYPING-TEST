@@ -19,8 +19,8 @@ const allTexts = [
 
 // Time limits in seconds per level
 const timeLimits = {
-    slow: [45, 60, 75, 90, 105, 120, 135, 150, 165, 180], // 1 to 10 lines
-    speed: [30, 45, 60, 75, 90, 105, 120, 135, 150, 165] // 1 to 10 lines
+    slow: [75, 90, 105, 120, 135, 150, 165, 180, 200, 225], // 1 to 10 lines
+    speed: [60, 75, 90, 105, 120, 135, 150, 165, 180, 200] // 1 to 10 lines
 };
 
 // DOM elements
@@ -345,5 +345,6 @@ failHomeBtn.addEventListener('click', () => {
     gamePage.classList.remove('active');
     homePage.classList.add('active');
 });
+
 
 typingArea.addEventListener('input', handleTyping);
