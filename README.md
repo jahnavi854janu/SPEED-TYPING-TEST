@@ -45,4 +45,3 @@ Here's the URL
 
 "https://jahnavi854janu.github.io/SPEED-TYPING-TEST/"
 
-# Open index.html in your browser
